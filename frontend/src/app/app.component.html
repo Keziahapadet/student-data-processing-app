@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav mode="side" [opened]="sidenavOpened" class="sidenav">
+    <div class="sidenav-header">
+      <mat-icon class="logo-icon">school</mat-icon>
+      <span class="logo-text">Student Data</span>
+    </div>
+
+    <mat-nav-list class="nav-list">
+      @for (item of navItems; track item.path) {
+        <a mat-list-item
+           [routerLink]="item.path"
+           routerLinkActive="active-link"
+           class="nav-item">
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <div matListItemTitle>{{ item.label }}</div>
+          <div matListItemLine class="nav-description">{{ item.description }}</div>
+        </a>
+      }
+    </mat-nav-list>
+
+    <div class="sidenav-footer">
+      <mat-icon>info</mat-icon>
+      <span>v1.0.0</span>
+    </div>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="main-content">
+    <!-- Toolbar -->
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button (click)="toggleSidenav()" class="menu-button">
+        <mat-icon>{{ sidenavOpened ? 'menu_open' : 'menu' }}</mat-icon>
+      </button>
+      <span class="toolbar-title">{{ title }}</span>
+      <span class="toolbar-spacer"></span>
+      <button mat-icon-button matTooltip="Notifications">
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Settings">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Page Content -->
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,102 @@
+<div class="page-header">
+  <h1>Process Excel Data</h1>
+  <p>Convert Excel files to CSV format with automatic score transformation (+10).</p>
+</div>
+
+<div class="cards-grid">
+  <mat-card class="action-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="card-icon process">sync</mat-icon>
+      <mat-card-title>Excel to CSV Conversion</mat-card-title>
+      <mat-card-subtitle>Upload Excel file and convert to CSV</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="info-box">
+        <mat-icon>info</mat-icon>
+        <div>
+          <strong>Processing Details:</strong>
+          <p>During conversion, student scores will be automatically increased by 10 points.</p>
+          <p class="formula">CSV Score = Excel Score + 10</p>
+        </div>
+      </div>
+
+      <!-- File Drop Zone -->
+      <div class="drop-zone"
+           [class.drag-over]="dragOver"
+           [class.has-file]="selectedFile"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           (drop)="onDrop($event)">
+        <input type="file" #fileInput accept=".xlsx,.xls" (change)="onFileSelected($event)" hidden>
+
+        @if (selectedFile) {
+          <mat-icon class="file-icon">description</mat-icon>
+          <p class="file-name">{{ selectedFile.name }}</p>
+          <p class="file-size">{{ (selectedFile.size / 1024 / 1024) | number:'1.2-2' }} MB</p>
+          <button mat-stroked-button (click)="fileInput.click()">
+            <mat-icon>swap_horiz</mat-icon>
+            Change File
+          </button>
+        } @else {
+          <mat-icon class="upload-icon">cloud_upload</mat-icon>
+          <p>Drag & drop Excel file here</p>
+          <p class="hint">or</p>
+          <button mat-stroked-button (click)="fileInput.click()">
+            <mat-icon>folder_open</mat-icon>
+            Browse Files
+          </button>
+          <p class="file-types">Accepted: .xlsx, .xls</p>
+        }
+      </div>
+
+      @if (loading) {
+        <mat-progress-bar mode="indeterminate" class="progress-bar"></mat-progress-bar>
+        <p class="loading-text">Converting Excel to CSV...</p>
+      }
+
+      @if (result) {
+        <div class="result-box success">
+          <mat-icon>check_circle</mat-icon>
+          <div>
+            <strong>CSV File Created Successfully!</strong>
+            <p class="file-path">{{ result }}</p>
+          </div>
+        </div>
+      }
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="process()" [disabled]="loading || !selectedFile">
+        <mat-icon>play_arrow</mat-icon>
+        {{ loading ? 'Processing...' : 'Process File' }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="stats-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="card-icon info">transform</mat-icon>
+      <mat-card-title>Transformation</mat-card-title>
+      <mat-card-subtitle>Data modifications</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="transform-visual">
+        <div class="transform-item">
+          <span class="label">Input</span>
+          <span class="value">Excel (.xlsx)</span>
+        </div>
+        <mat-icon class="arrow">arrow_downward</mat-icon>
+        <div class="transform-item highlight">
+          <span class="label">Score +10</span>
+          <span class="value">55-75 → 65-85</span>
+        </div>
+        <mat-icon class="arrow">arrow_downward</mat-icon>
+        <div class="transform-item">
+          <span class="label">Output</span>
+          <span class="value">CSV (.csv)</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

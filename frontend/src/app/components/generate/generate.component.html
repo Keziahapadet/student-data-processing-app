@@ -1,0 +1,82 @@
+<div class="page-header">
+  <h1>Generate Student Data</h1>
+  <p>Create synthetic Excel files with random student records for testing purposes.</p>
+</div>
+
+<div class="cards-grid">
+  <mat-card class="action-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="card-icon">add_circle</mat-icon>
+      <mat-card-title>Data Generation</mat-card-title>
+      <mat-card-subtitle>Create Excel file with student records</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="info-box">
+        <mat-icon>info</mat-icon>
+        <div>
+          <strong>Generated Data Format:</strong>
+          <ul>
+            <li>Student ID (auto-increment)</li>
+            <li>First Name (3-8 random chars)</li>
+            <li>Last Name (3-8 random chars)</li>
+            <li>DOB (2000-2010)</li>
+            <li>Class (Class1-Class5)</li>
+            <li>Score (55-75)</li>
+          </ul>
+        </div>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Number of Records</mat-label>
+        <input matInput type="number" [(ngModel)]="count" min="1" max="1000000" placeholder="Enter number of records">
+        <mat-icon matSuffix>tag</mat-icon>
+        <mat-hint>Enter between 1 and 1,000,000 records</mat-hint>
+      </mat-form-field>
+
+      @if (loading) {
+        <mat-progress-bar mode="indeterminate" class="progress-bar"></mat-progress-bar>
+        <p class="loading-text">Generating {{ count | number }} records...</p>
+      }
+
+      @if (result) {
+        <div class="result-box success">
+          <mat-icon>check_circle</mat-icon>
+          <div>
+            <strong>File Generated Successfully!</strong>
+            <p class="file-path">{{ result }}</p>
+          </div>
+        </div>
+      }
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="generate()" [disabled]="loading || count < 1">
+        <mat-icon>play_arrow</mat-icon>
+        {{ loading ? 'Generating...' : 'Generate Excel' }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="stats-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="card-icon info">analytics</mat-icon>
+      <mat-card-title>Quick Stats</mat-card-title>
+      <mat-card-subtitle>Generation information</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="stat-item">
+        <span class="stat-label">Records to Generate</span>
+        <span class="stat-value">{{ count | number }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Estimated File Size</span>
+        <span class="stat-value">~{{ (count * 50 / 1024 / 1024) | number:'1.1-1' }} MB</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Output Format</span>
+        <span class="stat-value">Excel (.xlsx)</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

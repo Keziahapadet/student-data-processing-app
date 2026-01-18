@@ -1,0 +1,18 @@
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Java / Maven
+backend/target/
+
+# IDE
+*.iml
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Generated data
+/data-output

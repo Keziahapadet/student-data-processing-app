@@ -1,0 +1,252 @@
+.page-header {
+  margin-bottom: 24px;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 12px;
+
+    button mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Filters Card
+.filters-card {
+  border-radius: 16px !important;
+  margin-bottom: 24px;
+}
+
+.filters-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  .filter-field {
+    min-width: 200px;
+    flex: 1;
+  }
+
+  .filter-actions {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 4px;
+
+    button mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Table Card
+.table-card {
+  border-radius: 16px !important;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.students-table {
+  width: 100%;
+
+  th {
+    color: #94a3b8 !important;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    color: #f1f5f9;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0;
+  color: #94a3b8;
+
+  p {
+    margin-top: 16px;
+  }
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+  color: #64748b;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #94a3b8;
+  }
+
+  span {
+    font-size: 0.875rem;
+    margin-top: 4px;
+  }
+}
+
+// Cell styles
+.id-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 4px 12px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.class-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+
+  &[data-class="Class1"] {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+  }
+
+  &[data-class="Class2"] {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+  }
+
+  &[data-class="Class3"] {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+  }
+
+  &[data-class="Class4"] {
+    background: rgba(236, 72, 153, 0.15);
+    color: #f472b6;
+  }
+
+  &[data-class="Class5"] {
+    background: rgba(139, 92, 246, 0.15);
+    color: #a78bfa;
+  }
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 4px 12px;
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  &.medium {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+  }
+
+  &.high {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+  }
+}
+
+// Paginator
+mat-paginator {
+  background: transparent !important;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Stats Row
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  border-radius: 12px !important;
+  padding: 16px !important;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #60a5fa;
+  }
+
+  .stat-content {
+    display: flex;
+    flex-direction: column;
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
