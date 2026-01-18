@@ -1,0 +1,11 @@
+com/compulynx/studentdata/service/DataProcessingServiceTest.class
+com/compulynx/studentdata/controller/StudentControllerIntegrationTest.class
+com/compulynx/studentdata/service/DataGenerationServiceTest$1.class
+com/compulynx/studentdata/service/DataGenerationServiceTest.class
+com/compulynx/studentdata/service/DataProcessingServiceTest$1.class
+com/compulynx/studentdata/controller/UploadControllerIntegrationTest.class
+com/compulynx/studentdata/controller/DataControllerIntegrationTest.class
+com/compulynx/studentdata/repository/StudentRepositoryTest.class
+com/compulynx/studentdata/StudentDataProcessingApplicationTests.class
+com/compulynx/studentdata/PostgresIntegrationTest.class
+com/compulynx/studentdata/service/StudentServiceTest.class

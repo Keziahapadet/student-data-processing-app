@@ -1,0 +1,9 @@
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/PostgresIntegrationTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/StudentDataProcessingApplicationTests.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/controller/DataControllerIntegrationTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/controller/StudentControllerIntegrationTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/controller/UploadControllerIntegrationTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/repository/StudentRepositoryTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/service/DataGenerationServiceTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/service/DataProcessingServiceTest.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/test/java/com/compulynx/studentdata/service/StudentServiceTest.java

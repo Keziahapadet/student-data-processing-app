@@ -1,0 +1,13 @@
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/StudentDataProcessingApplication.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/config/CorsConfig.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/controller/DataController.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/controller/StudentController.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/controller/UploadController.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/model/Student.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/repository/StudentRepository.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/service/DataGenerationService.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/service/DataProcessingService.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/service/ExportService.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/service/FilePathService.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/service/StudentService.java
+/Users/fadhilijuma/workspace/compulnx/student-data-processing-app/backend/src/main/java/com/compulynx/studentdata/service/StudentUploadService.java

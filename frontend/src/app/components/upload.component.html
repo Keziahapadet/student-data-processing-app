@@ -1,0 +1,127 @@
+<div class="page-header">
+  <h1>Upload to Database</h1>
+  <p>Import CSV data into PostgreSQL database with automatic score transformation (+5).</p>
+</div>
+
+<div class="cards-grid">
+  <mat-card class="action-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="card-icon upload">cloud_upload</mat-icon>
+      <mat-card-title>CSV to Database</mat-card-title>
+      <mat-card-subtitle>Upload CSV and store in PostgreSQL</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="info-box">
+        <mat-icon>info</mat-icon>
+        <div>
+          <strong>Upload Details:</strong>
+          <p>During upload, student scores will be automatically increased by 5 points.</p>
+          <p class="formula">Database Score = CSV Score + 5</p>
+        </div>
+      </div>
+
+      <!-- File Drop Zone -->
+      <div class="drop-zone"
+           [class.drag-over]="dragOver"
+           [class.has-file]="selectedFile"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           (drop)="onDrop($event)">
+        <input type="file" #fileInput accept=".csv" (change)="onFileSelected($event)" hidden>
+
+        @if (selectedFile) {
+          <mat-icon class="file-icon">description</mat-icon>
+          <p class="file-name">{{ selectedFile.name }}</p>
+          <p class="file-size">{{ (selectedFile.size / 1024 / 1024) | number:'1.2-2' }} MB</p>
+          <button mat-stroked-button (click)="fileInput.click()">
+            <mat-icon>swap_horiz</mat-icon>
+            Change File
+          </button>
+        } @else {
+          <mat-icon class="upload-icon">cloud_upload</mat-icon>
+          <p>Drag & drop CSV file here</p>
+          <p class="hint">or</p>
+          <button mat-stroked-button (click)="fileInput.click()">
+            <mat-icon>folder_open</mat-icon>
+            Browse Files
+          </button>
+          <p class="file-types">Accepted: .csv</p>
+        }
+      </div>
+
+      @if (loading) {
+        <mat-progress-bar mode="indeterminate" class="progress-bar"></mat-progress-bar>
+        <div class="timer-display running">
+          <mat-icon>timer</mat-icon>
+          <span class="timer-value">{{ timerState.formattedTime }}</span>
+          <span class="timer-label">Elapsed Time</span>
+        </div>
+        <p class="loading-text">Uploading records to database...</p>
+      }
+
+      @if (inserted > 0) {
+        <div class="result-box success">
+          <mat-icon>check_circle</mat-icon>
+          <div>
+            <strong>Upload Completed Successfully!</strong>
+            <p class="record-count">{{ inserted | number }} records inserted into database</p>
+          </div>
+        </div>
+        <div class="timer-display completed">
+          <mat-icon>check_circle</mat-icon>
+          <span class="timer-value">{{ finalTime }}</span>
+          <span class="timer-label">Completed in</span>
+        </div>
+      }
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="upload()" [disabled]="loading || !selectedFile">
+        <mat-icon>backup</mat-icon>
+        {{ loading ? 'Uploading...' : 'Upload to Database' }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="stats-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar class="card-icon info">storage</mat-icon>
+      <mat-card-title>Database Info</mat-card-title>
+      <mat-card-subtitle>Storage details</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="transform-visual">
+        <div class="transform-item">
+          <span class="label">Input</span>
+          <span class="value">CSV (.csv)</span>
+        </div>
+        <mat-icon class="arrow">arrow_downward</mat-icon>
+        <div class="transform-item highlight">
+          <span class="label">Score +5</span>
+          <span class="value">65-85 → 70-90</span>
+        </div>
+        <mat-icon class="arrow">arrow_downward</mat-icon>
+        <div class="transform-item">
+          <span class="label">Output</span>
+          <span class="value">PostgreSQL DB</span>
+        </div>
+      </div>
+
+      @if (inserted > 0 || timerState.isRunning) {
+        <div class="upload-stats">
+          @if (inserted > 0) {
+            <div class="stat-item">
+              <mat-icon>check_circle</mat-icon>
+              <span>{{ inserted | number }} records</span>
+            </div>
+          }
+          <div class="stat-item performance">
+            <mat-icon>speed</mat-icon>
+            <span>{{ timerState.isRunning ? timerState.formattedTime : finalTime }}</span>
+          </div>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>
